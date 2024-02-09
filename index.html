@@ -32,7 +32,7 @@
 
                     <div class="col-md-10">
                         <label for="regUmur" class="form-label">Umur</label>
-                        <input type="number" class="form-control" id="regUmur" required minlength="25">
+                        <input type="number" class="form-control" id="regUmur" required min="25">
                         <div class="invalid-feedback">
                         Umur Minimal 25 Tahun
                         </div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="col-md-10">
-                        <button class="btn btn-primary submit-button" type="submit">
+                        <button class="btn btn-primary submit-button" id="liveAlertBtn" type="submit">
                             Sumbit
                         </button>
                     </div>
@@ -61,22 +61,23 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">No.</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Umur</th>
                             <th scope="col">Uang Saku</th>
                         </tr>
                     </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
                 </table>
                 <br>
                 <br>
                 <br>
                 <div class="card">
-                    <div class="card-body">
-                      <h1><u>Resume</u></h1>
-                      <p class="resume">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus quo molestias eaque provident? Magni, cum! Adipisci iusto corporis quidem possimus vel recusandae ipsa ducimus, quo deleniti rem assumenda debitis consectetur?</p>
-                    </div>
-                  </div>
+                    <h1><u>Resume</u></h1>
+                    <p id="resume"></p>
+                </div>
             </div>
           </div>
     </div>
