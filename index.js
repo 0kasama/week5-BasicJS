@@ -14,19 +14,12 @@ class RegistrationForm {
   async handleSubmit(event) {
     event.preventDefault();
 
-    if (this.regNama.value.length < 10) {
-      this.regNama.classList.add("is-invalid");
+    const form = document.querySelector("form.needs-validation");
+    if (!form.checkValidity()) {
+      form.classList.add("was-validated");
       return;
-    }
-
-    if (this.regUmur.value < 25) {
-      this.regUmur.classList.add("is-invalid");
-      return;
-    }
-
-    if (this.regJajan.value < 100000 || this.regJajan.value > 1000000) {
-      this.regJajan.classList.add("is-invalid");
-      return;
+    } else {
+      form.classList.remove("was-validated");
     }
 
     this.registForm.push({
@@ -40,9 +33,7 @@ class RegistrationForm {
     this.regJajan.value = "";
 
     await this.displayList();
-
     this.displayResume();
-
     this.showValid();
   }
 
@@ -64,9 +55,9 @@ class RegistrationForm {
     const averageUmur = this.getAverageFromList(this.registForm, "umur");
     const averageJajan = this.getAverageFromList(this.registForm, "jajan");
 
-    this.resume.innerHTML = `Rata - rata usia terdaftar adalah ${
+    this.resume.innerHTML = `Rata - rata usia adalah ${
       Math.round(averageUmur * 100) / 100
-    } tahun dan rata - rata uang saku terdaftar sebesar Rp ${
+    } tahun dan rata - rata uang saku sebesar Rp ${
       Math.round(averageJajan * 100) / 100
     }`;
   }
